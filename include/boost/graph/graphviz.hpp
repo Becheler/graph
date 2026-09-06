@@ -32,7 +32,6 @@
 #include <boost/config/pragma_message.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/static_assert.hpp>
-#include <boost/algorithm/string/replace.hpp>
 
 namespace boost
 {
@@ -114,7 +113,10 @@ template < typename T > inline std::string escape_dot_string(const T& obj)
     }
     else
     {
-        boost::algorithm::replace_all(s, "\"", "\\\"");
+        for (auto pos = s.find('"'); pos != std::string::npos; pos = s.find('"', pos + 2))
+        {
+            s.insert(pos, 1, '\\');
+        }
         return "\"" + s + "\"";
     }
 }
