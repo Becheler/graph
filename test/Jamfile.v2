@@ -144,6 +144,7 @@ alias graph_test_regular :
     [ run mean_geodesic.cpp ]
     [ run eccentricity.cpp ]
     [ run clustering_coefficient.cpp ]
+    [ run bc_clustering_test.cpp ]
     [ run core_numbers_test.cpp ]
     [ run louvain_quality_function_test.cpp ]
     [ run louvain_clustering_test.cpp ]
